@@ -36,7 +36,7 @@ pipeline {
         stage('Docker Build & Push') {
           steps {
             script {  
-              docker.withRegistry('https://hub.docker.com/repository/docker/dockerurbanoreyser/nodejsapp', 'docker-hub') {
+              docker.withRegistry('https://hub.docker.com/repository/docker/dockerurbanoreyser/nodejsapp', 'dockerhub') {
                 def appmavenjenkins = docker.build("dockerurbanoreyser/nodejsapp:${gitcommit}", ".")
                 appmavenjenkins.push()
               }
